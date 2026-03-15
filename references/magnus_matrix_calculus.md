@@ -6,14 +6,6 @@ Department of Econometrics & Data Science, Vrije Universiteit Amsterdam, and Tin
 
 ## ARTICLE INFO
 
-JEL classification:
-
-C02
-
-C60
-
-C61
-
 Keywords:
 
 Differential calculus
@@ -586,7 +578,12 @@ where  $ e_{s} $ and  $ e_{t} $ are elementary vectors with 1 in the sth (respec
 
 and hence
 
- $$ H F_{s t}(X)=\frac{\partial^{2}F_{s t}}{(\partial\mathrm{v e c}X)(\partial\mathrm{v e c}X)^{\prime}}=K_{n}(C_{t s}^{\prime}\otimes X^{-1}+X^{\prime}^{-1}\otimes C_{t s}). $$ 
+标准的 Hessian 公式应为：
+
+$$ \begin{aligned} H F_{s t}(X) &= \frac{\partial^{2}F_{s t}}{\partial (\mathrm{vec}X) \partial (\mathrm{vec}X)^{\prime}} \\ &= (X'^{-1} C_{ts}' X'^{-1}) \otimes X^{-1} + X'^{-1} \otimes (X^{-1} C_{ts} X^{-1}) \end{aligned} $$
+
+或者利用 $X$ 的性质，可以写成更对称的形式：
+$$ H F_{st}(X) = (X'^{-1} \otimes X^{-1}) (C_{ts}' \otimes X + X' \otimes C_{ts}) (X'^{-1} \otimes X^{-1}) $$
 
 ### 13. Example 2: Maximum likelihood
 
@@ -850,7 +847,7 @@ Magnus, J.R., Neudecker, H., 2019. Matrix Differential Calculus with Application
 
 (iii)  $ x' A x = 0 $ for every x and  $ A = A' $  $ \iff $ A = 0.
 
-Proof. We shall prove only one direction of these equivalences, the other being trivial. Let $e_i$ denote the $i$th elementary vector, that is the vector with one in the $i$th position and zeros elsewhere. To prove (i), let $x = e_i$. Then, $Ae_i = 0$ for every $i$, that is, every column of $A$ is zero, and hence $A = 0$. To prove (ii), let $x = e_i + e_j$. Then,
+Proof. We shall prove only one direction of these equivalences, the other being trivial. Let $e_i$ denote the $i$ th elementary vector, that is the vector with one in the $i$ th position and zeros elsewhere. To prove (i), let $x = e_i$. Then, $Ae_i = 0$ for every $i$, that is, every column of $A$ is zero, and hence $A = 0$. To prove (ii), let $x = e_i + e_j$. Then,
 
  $$ a_{ii}+a_{ij}+a_{ji}+a_{jj}=0, $$ 
 
@@ -926,7 +923,7 @@ Proposition 5. If A and B are matrices of the same order, then
 
  $$ (\mathrm{vec}\;A)^{\prime}(\mathrm{vec}\;B)=\mathrm{tr}\;A^{\prime}B. $$ 
 
-Proof. The product (vec  $ A $)' (vec B) multiplies the corresponding elements in A and B and adds them together, so that (vec  $ A $)' (vec B) =  $ \sum_{ij} a_{ij} b_{ij} $. But this is precisely the expression for tr  $ A' $B by the proof of Proposition 1. ☐
+Proof. The product (vec  $ A $)' (vec B) multiplies the corresponding elements in A and B and adds them together, so that (vec  $ A $)' (vec B) =  $ \sum_{ij} a_{ij} b_{ij} $. But this is precisely the expression for tr  $ A' $ B by the proof of Proposition 1. ☐
 
 Exercise 3. If a and b are vectors of arbitrary order, show that
 
@@ -944,7 +941,7 @@ Proof. Using Exercise 3, we see that
 
  $$ \begin{aligned}\operatorname{vec}(Abe^{\prime}C)&=\operatorname{vec}\left((Ab)(C^{\prime}e)^{\prime}\right)=(C^{\prime}e)\otimes(Ab)\\&=(C^{\prime}\otimes A)(e\otimes b)=(C^{\prime}\otimes A)\operatorname{vec}(be^{\prime})\end{aligned} $$ 
 
-for any vectors $b$ and $e$. Then, writing $B = \sum_{j} b_{j} e_{j}^{\prime}$ where $b_{j}$ and $e_{j}$ denote the $j$th column of $B$ and $I$, respectively, the result follows. ☐
+for any vectors $b$ and $e$. Then, writing $B = \sum_{j} b_{j} e_{j}^{\prime}$ where $b_{j}$ and $e_{j}$ denote the $j$ th column of $B$ and $I$, respectively, the result follows. ☐
 
 #### 2.5. The commutation matrix
 
@@ -954,7 +951,7 @@ Let $A$ be an $m \times n$ matrix. The vectors $\mathrm{vec} A$ and $\mathrm{vec
 
 If $m = n$, we write $K_n$ instead of $K_{nn}$. The commutation matrix is a square matrix with exactly one entry of 1 in each row and each column with all other entries 0. (Such matrices are called permutation matrices.)Exercise 4. Show that tr  $ K_{n}=n $.
 
-Solution. If $A$ is a square matrix of order $n \times n$, then its $i$th diagonal element is placed in the same position in vec $A$ as in vec $A'$. Hence, the $i$th diagonal block of $K_n$ has 1 in the $i$th position and zeros elsewhere. Summing up the diagonal elements of $K_n$ thus adds 1 for each block, that is, $n$ in total.
+Solution. If $A$ is a square matrix of order $n \times n$, then its $i$ th diagonal element is placed in the same position in vec $A$ as in vec $A'$. Hence, the $i$ th diagonal block of $K_n$ has 1 in the $i$ th position and zeros elsewhere. Summing up the diagonal elements of $K_n$ thus adds 1 for each block, that is, $n$ in total.
 
 Proposition 7. The commutation matrix satisfies
 
